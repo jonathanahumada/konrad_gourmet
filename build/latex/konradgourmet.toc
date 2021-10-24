@@ -1,0 +1,22 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{\numberline {1}SRS}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introducci\IeC {\'o}n}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}\IeC {\'A}mbito del proyecto}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}Descripci\IeC {\'o}n general}{1}{section.1.3}
+\contentsline {section}{\numberline {1.4}Funcionalidades del sistema}{2}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Sucursal}{2}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Central}{2}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {1.4.3}Opciones de configuraci\IeC {\'o}n}{3}{subsection.1.4.3}
+\contentsline {subsection}{\numberline {1.4.4}Eventos autom\IeC {\'a}ticos o procesos de soporte}{3}{subsection.1.4.4}
+\contentsline {section}{\numberline {1.5}Requerimientos de interfaces externas}{4}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Interfaces de software}{4}{subsection.1.5.1}
+\contentsline {section}{\numberline {1.6}Atributos de calidad}{4}{section.1.6}
+\contentsline {subsection}{\numberline {1.6.1}Requerimientos de usabilidad}{4}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.2}Requerimientos de confiabilidad}{4}{subsection.1.6.2}
+\contentsline {subsection}{\numberline {1.6.3}Requerimientos de disponibilidad}{4}{subsection.1.6.3}
+\contentsline {subsection}{\numberline {1.6.4}Requerimientos de desempe\IeC {\~n}o}{4}{subsection.1.6.4}
+\contentsline {subsection}{\numberline {1.6.5}Requerimientos de seguridad}{4}{subsection.1.6.5}
+\contentsline {subsection}{\numberline {1.6.6}Requerimientos de mantenimiento}{5}{subsection.1.6.6}
+\contentsline {subsection}{\numberline {1.6.7}Requerimientos de portabilidad}{5}{subsection.1.6.7}
+\contentsline {chapter}{\numberline {2}Requerimientos espec\IeC {\'\i }ficos}{7}{chapter.2}
+\contentsline {chapter}{\numberline {3}Indices and tables}{9}{chapter.3}

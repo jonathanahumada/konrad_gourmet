@@ -1,0 +1,2 @@
+UC,Actores,Procesamiento,Salidas,Excepciones 
+Registrar Platos,Jefe de cocina,El jefe de cocina de cada uno de los puntos del restaurante en la ciudad puede registrar los platos o menu de este para lo cual debe ingresar los siguientes datos,El plato se registra y se descuentan undades de producto,"La vista se recarga nuevamente, pero se muestran errores de validación por cada campo del formulario "

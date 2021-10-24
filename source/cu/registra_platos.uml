@@ -1,0 +1,51 @@
+@startuml
+
+
+package Eventos {
+(Arrojar alarma escazes) as (UC4)
+(leer valores estandarizidos Ministerio) as (UCS-1)
+(identificar tendencias) as (UCS-3)
+(enviar correos a Jefe de Cocina) as (UCS-4)
+}
+
+newpage
+
+rectangle Sucursal {
+(Registra platos) as (UC1)
+(Solicita stock alimentos) as (UC2)
+(Registrar pedido) as (UC3)
+
+:Jefe de cocina: -> (UC1)
+:Jefe de cocina: -down-> (UC2)
+:Mesero: -> (UC3)
+(UC2) .> (Enviar correo confirmación) : include
+
+}
+
+newpage
+
+rectangle central {
+(Consulta solicitudes de sucursal) as (UC5)
+(Consulta precios cotizados) as (UC6)
+(Generar solicitud de cotización) as (UC7)
+(Enviar solicitud de cotización a proveedor) as (UC8)
+(Consulta cotización de proveedores) as (UC9)
+(Valida cotización de proveedores con generada) as (UC10)
+(Consultar tablero de control) as (UC11)
+(UC8) -> (Actualiza con valores estandarizados): include
+:Auxiliar de compras: -left-> (UC5)
+:Auxiliar de compras: -right-> (UC6)
+:Auxiliar de compras: -down-> (UC7)
+:Director compras: -left-> (UC9)
+:Director compras: -right-> (UC10)
+:Director compras: -down-> (UC11)
+
+}
+newpage
+rectangle configuracion {
+:administrador: -left-> (consultar auditoria)
+:administrador: -right> (monitorear auditoria)
+:administrador: -down-> (consultar logs de errores)
+}
+
+@enduml
