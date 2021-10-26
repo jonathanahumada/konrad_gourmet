@@ -63,7 +63,7 @@
 
 
 \title{Konrad Gourmet}
-\date{23 de octubre de 2021}
+\date{25 de octubre de 2021}
 \release{0.0}
 \author{Jonatan Ahumada}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -320,52 +320,9 @@ No se solicitaron requerimientos de portabilidad.
 \chapter{Requerimientos específicos}
 \label{\detokenize{SRS:requerimientos-especificos}}
 
-\begin{savenotes}\sphinxattablestart
-\centering
-\begin{tabular}[t]{|\X{25}{125}|\X{100}{125}|}
-\hline
-\sphinxstyletheadfamily 
-\sphinxAtStartPar
-UC:
-&\sphinxstyletheadfamily 
-\sphinxAtStartPar
-Registrar platos
-\\
-\hline
-\sphinxAtStartPar
-Actores:
-&
-\sphinxAtStartPar
-Jefe de Cocina
-\\
-\hline
-\sphinxAtStartPar
-Procesamiento:
-&
-\sphinxAtStartPar
-El jefe de cocina de cada uno de los puntos del restaurante en la ciudad puede registrar los platos o menú de este para lo cual debe ingresar los siguientes datos
-\\
-\hline
-\sphinxAtStartPar
-Salidas:
-&\\
-\hline
-\sphinxAtStartPar
-Excepciones:
-&\\
-\hline
-\end{tabular}
-\par
-\sphinxattableend\end{savenotes}
-
-
-\begin{savenotes}\sphinxattablestart
-\centering
-\sphinxcapstartof{table}
-\sphinxthecaptionisattop
-\sphinxcaption{Prueba}\label{\detokenize{SRS:id1}}
-\sphinxaftertopcaption
-\begin{tabular}[t]{|\X{20}{100}|\X{20}{100}|\X{20}{100}|\X{20}{100}|\X{20}{100}|}
+\begin{savenotes}\sphinxatlongtablestart\begin{longtable}[c]{|\X{10}{80}|\X{10}{80}|\X{20}{80}|\X{20}{80}|\X{20}{80}|}
+\sphinxthelongtablecaptionisattop
+\caption{Requerimientos específicos\strut}\label{\detokenize{SRS:id1}}\\*[\sphinxlongtablecapskipadjust]
 \hline
 \sphinxstyletheadfamily 
 \sphinxAtStartPar
@@ -384,6 +341,36 @@ Salidas
 Excepciones
 \\
 \hline
+\endfirsthead
+
+\multicolumn{5}{c}%
+{\makebox[0pt]{\sphinxtablecontinued{\tablename\ \thetable{} \textendash{} proviene de la página anterior}}}\\
+\hline
+\sphinxstyletheadfamily 
+\sphinxAtStartPar
+UC
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Actores
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Procesamiento
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Salidas
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Excepciones
+\\
+\hline
+\endhead
+
+\hline
+\multicolumn{5}{r}{\makebox[0pt][r]{\sphinxtablecontinued{continué en la próxima página}}}\\
+\endfoot
+
+\endlastfoot
+
 \sphinxAtStartPar
 Registrar Platos
 &
@@ -394,15 +381,301 @@ Jefe de cocina
 El jefe de cocina de cada uno de los puntos del restaurante en la ciudad puede registrar los platos o menu de este para lo cual debe ingresar los siguientes datos
 &
 \sphinxAtStartPar
-El plato se registra y se descuentan undades de producto
+El plato se registra  en BD
 &
 \sphinxAtStartPar
 La vista se recarga nuevamente, pero se muestran errores de validación por cada campo del formulario
 \\
 \hline
-\end{tabular}
-\par
-\sphinxattableend\end{savenotes}
+\sphinxAtStartPar
+Registrar Pedido
+&
+\sphinxAtStartPar
+Mesero
+&
+\sphinxAtStartPar
+Llena un formulario con 1) Plato, 2) Cantidad 3) Mesa
+&
+\sphinxAtStartPar
+El pedido se registra en BD y se descuentan unidades de producto según el plato
+&
+\sphinxAtStartPar
+La vista se recarga nuevamente, pero se muestran errores de validación por cada campo del formulario
+\\
+\hline
+\sphinxAtStartPar
+Solicitar stock de alimentos
+&
+\sphinxAtStartPar
+Jefe de cocina
+&
+\sphinxAtStartPar
+Llena un formulario múltiple con los campos 1) Categoría de producto, 2) Producto (lista desplegable que depende de 1), 3) Cantidad, 4) Marca Unidad
+&
+\sphinxAtStartPar
+Se crea una solicitud, se registra en BD y luego se incluye el caso de uso ‘enviar correo’ destinado al solicitante y cuyo cuerpo es un mensaje de confirmación
+&
+\sphinxAtStartPar
+La vista se recarga nuevamente, pero se muestran errores de validación por cada campo del formulario
+\\
+\hline
+\sphinxAtStartPar
+Enviar Correo
+&
+\sphinxAtStartPar
+n/a
+&
+\sphinxAtStartPar
+Este UC es incluido dentro de otros casos de uso.
+&
+\sphinxAtStartPar
+Se envía un correo con remitente, destinatario y cuerpo establecido según UC que lo incluya. Luego se añade un certificado y una estampa cronológica al final del cuerpo del correo.
+&
+\sphinxAtStartPar
+Se envía un correo al remitente indicando que el mensaje no fue enviado y mostrando el correspondiente mensaje de error
+\\
+\hline
+\sphinxAtStartPar
+Consulta solicitudes de sucursal
+&
+\sphinxAtStartPar
+Auxiliar de compras
+&
+\sphinxAtStartPar
+Visualiza una lista de solicitudes de stock por parte de las diversas sucursales. La vista se puede navegar por fecha de solicitud, Producto, Cantidad, Marca, y estado.
+&
+\sphinxAtStartPar
+Desde esta vista, se puede seleccionar una solicitud de stock particular y entrar al UC ‘Generar solicitud de cotización.
+&
+\sphinxAtStartPar
+n/a
+\\
+\hline
+\sphinxAtStartPar
+Generar solicitud de cotización
+&
+\sphinxAtStartPar
+Auxiliar de compras
+&
+\sphinxAtStartPar
+Se estipula un proveedor (lista desplegable) y un rango de fechas.
+&
+\sphinxAtStartPar
+La solicitud de cotización cambia a estado ‘No Enviada’ y ahora se puede consultar
+&\\
+\hline
+\sphinxAtStartPar
+Enviar solicitud de cotización
+&
+\sphinxAtStartPar
+Auxiliar de compras
+&
+\sphinxAtStartPar
+Se seleccióna una solicitud de cotización que no esté en estado ‘enviada’ y se presiona el boton ‘enviar al proveedor’
+&
+\sphinxAtStartPar
+La solicitud de cotización cambia a estado ‘Enviada’ y se ejecutael UC ‘enviar correo’ destinado al proveedor y ‘Actualiza solicitud con precios estandarizados’
+&\\
+\hline
+\sphinxAtStartPar
+Actualizar solicitud con valores estandarizadas
+&
+\sphinxAtStartPar
+n/a
+&
+\sphinxAtStartPar
+Este UC se ejecuta automáticamente al enviar una solicitud. El sistma consulta un servicio expuesto por la entidad gubernamental y añade campo ‘precio sugerido’ a cada producto de la cotización.
+&
+\sphinxAtStartPar
+Se actualizan valores de la solicitud en BD, y se deja un registro en el log del sistema de la actualizacións satisfactoria
+&
+\sphinxAtStartPar
+Si hay un problema con el servicio de actualización de datos. El estado de la solicitud se revierte y se muestra un mensaje
+\\
+\hline
+\sphinxAtStartPar
+Consulta respuesta de proveedores
+&
+\sphinxAtStartPar
+Director de Compras
+&
+\sphinxAtStartPar
+Recibe en su correo la respuesta de los proveedores. Esta parte del UC es manual y depende enteramente del actor.
+&
+\sphinxAtStartPar
+n/a
+&
+\sphinxAtStartPar
+n/a
+\\
+\hline
+\sphinxAtStartPar
+Registra valor del proveedor en cotización
+&
+\sphinxAtStartPar
+Director de Compras
+&
+\sphinxAtStartPar
+Luego abre el formulario de la solicitud de cotización respectiva y agrega los valores propuestos por los proveedores en una columna vacía.
+&
+\sphinxAtStartPar
+n/a
+&
+\sphinxAtStartPar
+n/a
+\\
+\hline
+\sphinxAtStartPar
+Valida cotización de proveedores con generada
+&
+\sphinxAtStartPar
+Director de Compras
+&
+\sphinxAtStartPar
+Por último, presiona el botón validar, el cual ejecutará la lógica de negocio correspondiente.
+&
+\sphinxAtStartPar
+Si el valor de la cotización está por encima en más de un 25\% del valor estándar del ministerio, la cotización queda en estado “RECHAZADA”, si la cotización está por debajo en más de un 50\% del valor estándar del ministerio, la cotización queda en estado “SOSPECHOSA” y finalmente las que se encuentren dentro de este rango quedan en estado “OPCIONADA”.
+&
+\sphinxAtStartPar
+Si faltó un valor por agregar por parte del actor, el formulario se recargará con los valores ingresados y señalará el valor faltante.
+\\
+\hline
+\sphinxAtStartPar
+Consulta tablero de control
+&
+\sphinxAtStartPar
+Director de Compras
+&
+\sphinxAtStartPar
+Vista con tablero de control (BAM) donde muestre los principales KPI del negocio
+&\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Producto con mayor demanda en el último mes, 2. Restaurante con mayor demanda en el último mes, 3. Proveedor con mejores precios en el último año
+
+\end{enumerate}
+&
+\sphinxAtStartPar
+n/a
+\\
+\hline
+\sphinxAtStartPar
+Parametrizar validaciones
+&
+\sphinxAtStartPar
+Administrador
+&
+\sphinxAtStartPar
+Vista permite alterar los márgenes para determinar si una solicitud es “SOSPECHOSA”, “OPCIONADA” o “RECHAZADA”
+&
+\sphinxAtStartPar
+Los márgenes se actualizan en BD.
+&
+\sphinxAtStartPar
+Si los márgenes son inconsistentes (el mismo valor para dos estados, o el margen para aceptar es más grande que el de rechazar) la operación no tiene efecto y se muestra un mensaje de error.
+\\
+\hline
+\sphinxAtStartPar
+Monitorear auditoría
+&
+\sphinxAtStartPar
+Administador
+&
+\sphinxAtStartPar
+Vista permite visualizar todas las tablas de la base de datos, con todos sus registros.
+&
+\sphinxAtStartPar
+Al ingresar en el detalle de cada fila, se muestra una lista de cambios a cada valor
+&
+\sphinxAtStartPar
+n/a
+\\
+\hline
+\sphinxAtStartPar
+Consultar logs
+&
+\sphinxAtStartPar
+Administrador
+&
+\sphinxAtStartPar
+Vista muestra cada arhico de log existente
+&
+\sphinxAtStartPar
+Al entrar al dtalle de cada archivo de log, se puede descargar el archivo .txt
+&
+\sphinxAtStartPar
+n/a
+\\
+\hline
+\end{longtable}\sphinxatlongtableend\end{savenotes}
+
+
+\chapter{Documento de Arquitectura}
+\label{\detokenize{SAD:documento-de-arquitectura}}\label{\detokenize{SAD::doc}}
+
+\section{Intoducción}
+\label{\detokenize{SAD:intoduccion}}
+\sphinxAtStartPar
+El propósito de este documento es proveer una visión
+exhaustiva del Sistema de Información de Konrad Gourmet,para
+lo cual se utilizarán diferentes vistas arquitectónicas
+. Pretende capturar y plasmar las decisiones que se han
+hecho en el sistema.
+
+
+\section{Representación arquitectónica}
+\label{\detokenize{SAD:representacion-arquitectonica}}
+\sphinxAtStartPar
+Para describir el sistema, se han desarrollado
+4 vistas:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Vista lógica
+\begin{quote}
+
+\sphinxAtStartPar
+Describe la conformación del software en cuanto sus componentes
+\end{quote}
+
+\item {} 
+\sphinxAtStartPar
+Vista de procesos
+
+\item {} 
+\sphinxAtStartPar
+Vista de despliegue
+
+\item {} 
+\sphinxAtStartPar
+Vista de implementación
+
+\end{enumerate}
+
+
+\subsection{Vista lógica}
+\label{\detokenize{SAD:vista-logica}}
+\sphinxAtStartPar
+El propósito de esta vista es mostrar, a nivel general,
+los componentes de software utilizados para el
+funcionamiento del sistema. Para resaltar, se
+utilizara el framework Django como backend, puesto
+que tiene ya bien integrados las funcionalidades estipuladas
+en los RNF como autenticación, cifrado, capacidad para
+activar auditoría, etc. Además, en el front\sphinxhyphen{}end se utilizará
+un framework de Javascript: Vue.js, por su ligereza y
+facilida de integración con Django. Los componentes de
+front\sphinxhyphen{}end son necesarios para cumplir los RNF de usabilidad.
+
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{vista_logica}.png}
+
+
+\subsection{Vista de despliegue}
+\label{\detokenize{SAD:vista-de-despliegue}}
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{vista_despliegue}.png}
 
 
 \chapter{Indices and tables}

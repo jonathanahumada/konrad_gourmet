@@ -1,0 +1,46 @@
+@startuml
+
+() HTTPS
+
+
+Package "Front end" as FE{
+[Vue.js]
+[Webpack]
+
+}
+HTTPS -> FE
+Package "Lógica de Negocio" as LN{
+[ Sucursal ]
+[ Central  ]
+[ Configuración ]
+}
+Package "Backend" {
+
+component Django {
+[ Django auth ]
+[ Django sessions]
+[ Django logging]
+[ Django caching]
+[ Django forms]
+[Django templates]
+[ Django ORM ]
+}
+
+Package "Persistencia" {
+[ PostgreSQL]
+}
+
+
+}
+Package "Eventos" as EV{
+[ RabbitMQ]
+}
+
+Package "Servicios" as SE{
+[MinComercio]
+}
+Django ..> LN :usa
+EV ..> SE
+SE <.. EV
+Backend ..> EV
+@enduml

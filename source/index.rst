@@ -11,6 +11,7 @@ Welcome to Konrad Gourmet's documentation!
    :caption: Contents:        
    
    SRS
+   SAD
 
 Indices and tables
 ==================

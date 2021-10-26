@@ -1,0 +1,35 @@
+@startuml
+cloud SOAP
+actor usuario
+
+queue "RabbitMQ" as RMQ{
+}
+package "Konrad Gourmet" as KG{
+
+}
+node VM1 [
+Servidor Linux
+
+]
+
+node VM2 [
+Servidor Linux
+
+]
+database PostgreSQL {
+}
+usuario --> VM1
+VM1 --> RMQ
+VM1 --> KG
+
+VM1 ..>  VM2 : tcp
+VM2 ..> VM1
+
+VM2 -- PostgreSQL
+cloud SMTP
+control backup
+
+RMQ ..> SOAP
+RMQ ..> SMTP
+RMQ ..> backup
+@enduml

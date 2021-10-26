@@ -153,22 +153,8 @@ No se solicitaron requerimientos de portabilidad.
 
 Requerimientos específicos
 ==========================
-.. list-table:: 
-   :widths: 25  100
-   :header-rows: 1
-
-   * - UC:
-     - Registrar platos
-   * - Actores:
-     -  Jefe de Cocina
-   * - Procesamiento:
-     -  El jefe de cocina de cada uno de los puntos del restaurante en la ciudad puede registrar los platos o menú de este para lo cual debe ingresar los siguientes datos
-   * - Salidas:
-     - 
-   * - Excepciones:
-     - 
-
-.. csv-table:: Prueba
+.. csv-table:: Requerimientos específicos
    :file: prueba.csv
-   :widths: 20 20 20 20 20
+   :widths: 10 10 20 20 20
    :header-rows: 1
+   :class: longtable
