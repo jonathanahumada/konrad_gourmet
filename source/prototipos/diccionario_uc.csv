@@ -1,0 +1,16 @@
+Cód,UC,Actores
+UC-1,Registrar Platos,
+UC-2,Registrar Pedido,
+UC-3,Solicitar stock de alimentos
+UC-4,Enviar Correo,n/a,
+UC-5,Consulta solicitudes de sucursal
+UC-6,Generar solicitud de cotización
+UC-7,Enviar solicitud de cotización
+UC-8,Actualizar solicitud con valores
+UC-9,Consulta respuesta de proveedores
+UC-10,Registra valor del proveedor
+UC-11,Valida cotización de proveedores
+UC-12,Consulta tablero de control
+UC-13,Parametrizar validaciones
+UC-14,Monitorear auditoría
+UC-15,Consultar logs

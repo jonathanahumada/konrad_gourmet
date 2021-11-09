@@ -102,7 +102,7 @@ Interfaces de software
 ......................
 - La tecnología utilizada debe ser de libre licenciamiento
 - Los lenguajes, frameworks y librerías deben ser las últimas versiones estables, reconocidas, con- soporte y de buenas prácticas
-- Cualquier servicio que se tenga que exponer hacia un sistema externo, se debe hacer a través de SOAP
+- Cualquier servicio que se tenga que exponer hacia un sistema externo, se debe hacer a través de SOAP
 Atributos de calidad
 ---------------------
 Requerimientos de usabilidad
@@ -153,8 +153,11 @@ No se solicitaron requerimientos de portabilidad.
 
 Requerimientos específicos
 ==========================
+
+
 .. csv-table:: Requerimientos específicos
    :file: prueba.csv
-   :widths: 10 10 20 20 20
    :header-rows: 1
    :class: longtable
+
+

@@ -1,0 +1,22 @@
+@startuml
+|Auxiliar compras|
+start
+
+:Crea solicitud de cotización;
+:Oprime botón enviar a proveedor;
+|RabbitMQ|
+:Añado a cola de solicitudes en trámite;
+:Consulto servicio del ministerio;
+
+if (¿obtuvo respuesta?) then (sí)
+  :actualiza cotización con valor sugerido;
+  |Django mail|
+  :envía cotización;
+  :envía mensaje confirmacion;
+  else (no)
+   |Django mail|
+   :notifica fallo de envío de cotización;
+   stop
+ endif
+stop
+@enduml

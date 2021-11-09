@@ -1,0 +1,16 @@
+@startuml
+Project starts 2021-09-07
+saturday are closed
+sunday are closed
+
+[iniciacion] lasts 5 days
+then [cronograma] lasts 2 days
+then [Diagrama CU] lasts 1 weeks
+then [Historias de usuario] lasts 1 weeks
+then [Especificacion RNF] lasts 1 weeks
+then [Documento de arquitectura] lasts 2 weeks
+then [Prototipos] lasts 1 weeks
+then [Diagrama de datos] lasts 1 weeks
+then [Plan de pruebas] lasts 1 weeks
+
+@enduml

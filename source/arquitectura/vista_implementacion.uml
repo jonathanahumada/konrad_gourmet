@@ -1,0 +1,235 @@
+@startuml
+
+package sucursal {
+package models {
+
+class Plato {
+-Categoría categoria
+-PlatoProducto[] productos_utilizados
+-Int cantidad
+-Str unidad
+-Double PrecioVenta
+}
+class Producto {
+- categoria
+- marca
+- valor_adquisicion
+}
+class Orden{
+-OrdenPlato [] platos
+- Mesa mesa
+}
+class OrdenPlato{
+-Plato plato
+-int cantidad
+}
+
+class PlatoProducto{
+- producto
+- Double cantidad_utilizada
+- plato
+}
+
+Plato "1" *.. "n" PlatoProducto
+
+PlatoProducto "1" *.. "n" Producto
+
+OrdenPlato "1" *.. "1" Plato
+
+Orden "1" *.. "n" OrdenPlato
+
+class SolicitudStock{
+-sucursal
+-solicitante
+-fecha
+-estado
+- SolicitudProducto productos
+}
+
+class SolicitudProducto{
+- Producto
+- cantidad
+- marca
+}
+
+SolicitudStock "1" *.. "n" SolicitudProducto
+}
+
+
+package servicios {
+
+class GestorMenu{
++ Plato[] AllPlatos
++ filtrarPorPrecio(double precio_mix, double precio_max)
++ filtrarPorNombre(str nom)
+
+
++filtrarPorVecesOrdenado(int veces_ordenado)
+}
+class "GestorInventario" {
++ Producto[] allProductos
++ Categoria[] allCategorias
++filtarPorCategoria(Categoria cat)
++filtrarPorPrecio(double precio_mix, double precio_max)
++filtrarPorNombre(str nom)
+}
+class ServicioConsultaMinisterio {
++getValorSugerido(producto)
++setURl(producto)
+}
+}
+package vistas{
+
+class  RegistrarPedido(CreateView)
+class  RegistrarPlato(CreateView)
+class ConsultarPlatos(ListView){
+- GestorMenu
+}
+class  SolicitarStock(CreateView)
+
+class  SolicitarCotizacion(CreateView){
+- ServicioConsultaMinisterio
+- enviarAProveedor()
+}
+class  ConsultarPrecios{
+- GestorInventario
+
+}
+class ConsultarSolicitudes(ListView){
+
+}
+}
+}
+newpage
+package central {
+
+package models {
+
+class SolicitudCotizacion{
+- solicitante
+- fecha_envio
+- proveedor
+- fecha_maxima
+- SolicitudProducto[] productos_solicitados
+}
+class Cotizacion{
+- SolicitudCotizacion solicitud
+- Estado estado
+- DateTime fecha_respuesta
+}
+}
+
+package servicios {
+class GestorCotizaciones{
++verSegunProveedor(Proveedor proveedor)
++contieneProducto(Producto producto)
++buscarSegunRangoFecha(DateTime inicio, DateTime fin)
++buscarSegunValorSugerido(Double valor)
++buscarSegunValorOfrecido(Duble valor)
++buscarSegunEstado(Estado)
+
+}
+class GestorSolicitudes{
+verSegunSolicitante(Solicitante solicitante)
+verSegunSucursal(Sucursal sucursal)
+verSegunProveedor(Proveedor proveedor)
+}
+class ServicioValidacionCotizacion{
+- Map config
++validar(valor_cotizacion, producto)
+-getParams()
+-getConfig()
+-setState(Model object)
+}
+
+}
+package vistas{
+class ActualizarCotizacion(UpdateView){
+- ServicioValidacionCotizacion
+}
+class TableroDeControl(DetailView)
+
+
+}
+}
+newpage
+package ABC {
+abstract Gestor {
++getAll()
++getById()
++orderBy(campo, critero)
++contains(campo,cadena)
++icontains()
+}
+
+abstract model{
++save()
++delete()
+}
+
+abstract CreateView{
++ permissions_required
++ form_valid()
++ get()
++ post()
+}
+abstract UpdateView{
++ permissions_required
++ form_valid()
++ get()
++ post()
+}
+abstract DeleteView{
++ permissions_required
++ confirmation_template
++ success_url
++ form_valid()
++ get()
++ post()
+}
+abstract ListView{
+- Paginator paginator
++ form_valid()
++ get()
++ post()
+}
+}
+
+newpage
+
+package Configuracion {
+package servicios {
+class GestorParametros{
++addParametroCotizacion()
++removeParemetroCotizacion()
+}
+class GestorEscazes{
++ setIntervaloEscaneo()
++ addCorreoParaNotificar()
+}
+
+class GestorUI{
+- setTheme()
+- addTheme()
+
+}
+}
+
+package vistas{
+class ConfigurationDashboard(Detailiew){
+
+}
+class EditarGestorEscazes(UpdateView){
+- GestorEscazes
+}
+class EditarUI(UpdateView){
+- GestorUI
+}
+
+class EditarParametrizacion(UpdateView){
+-GestorParametros(UpdateView)
+}
+
+}
+}
+@enduml

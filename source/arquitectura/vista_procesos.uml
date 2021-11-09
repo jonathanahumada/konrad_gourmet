@@ -1,0 +1,17 @@
+@startuml
+|Mesero|
+start
+
+:Registrar pedido;
+|Sistema|
+:Trigger DB;
+
+if (¿debajo del parametro?) then (sí)
+  :enviar mensaje escazes;
+  :acumular en queue;
+  else (no)
+   stop
+ endif
+stop
+@enduml
+

@@ -8,22 +8,46 @@ Package "Front end" as FE{
 [Webpack]
 
 }
-HTTPS -> FE
+
 Package "Lógica de Negocio" as LN{
 [ Sucursal ]
 [ Central  ]
 [ Configuración ]
+Package "Eventos" as EV{
+[cotizaciones]
+[monitoreo]
+
+
+}
+
+Package "Servicios" as SE{
+[MinComercio]
+}
 }
 Package "Backend" {
 
+
+component Apache2
+HTTPS -> Apache2
+component CeleryServer
+[ RabbitMQ]
 component Django {
-[ Django auth ]
-[ Django sessions]
-[ Django logging]
-[ Django caching]
-[ Django forms]
-[Django templates]
+[ Django Auth ]
+[ Django Sessions]
+[ Django Logging]
+[ Django Caching]
+[ Django Forms]
+[Django Templates]
 [ Django ORM ]
+[ Django Mail]
+ [CeleryClient]
+
+
+}
+
+
+
+
 }
 
 Package "Persistencia" {
@@ -31,16 +55,5 @@ Package "Persistencia" {
 }
 
 
-}
-Package "Eventos" as EV{
-[ RabbitMQ]
-}
 
-Package "Servicios" as SE{
-[MinComercio]
-}
-Django ..> LN :usa
-EV ..> SE
-SE <.. EV
-Backend ..> EV
 @enduml

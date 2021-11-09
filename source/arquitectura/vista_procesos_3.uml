@@ -1,0 +1,23 @@
+@startuml
+|Director compras|
+start
+
+:Registra valor de proveedor en cotización;
+:Oprime botón validar;
+|Lógica de negocio|
+
+
+if ( > 25%?) then
+  :RECHAZADA;
+  elseif (< 50%) then
+   :SOSPECHOSA;
+elseif(50%< x<25%) then
+    :OPCIONADA;
+ endif
+|Director compras|
+:Ve retroalimentación;
+:Confirma;
+|ORM|
+:Cambia estado;
+stop
+@enduml

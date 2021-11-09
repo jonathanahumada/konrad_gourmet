@@ -17,12 +17,12 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Konrad Gourmet'
+project = 'Konrad Gourmet App'
 copyright = '2021, Jonatan Ahumada'
-author = 'Jonatan Ahumada'
+author = 'Jonatan Ahumada, Jorge Garzón'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0'
+release = '1.0'
 
 
 # -- General configuration ---------------------------------------------------

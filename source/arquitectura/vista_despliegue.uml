@@ -1,35 +1,46 @@
 @startuml
-cloud SOAP
-actor usuario
 
-queue "RabbitMQ" as RMQ{
+
+
+
+node "Ubuntu LTS 20.04" << execution environment >> as VM1{
+node "Docker Host" << host >>{
+node "KonradGourmetApp"
+node "Python 3.7"
+node "Apache2" << server >>
+node "node.js"
+node "Celery" << server >> as CL1
+    }
 }
-package "Konrad Gourmet" as KG{
+
+node "Ubuntu LTS 20.04" << execution environment >>  as VM2 {
+node "Docker Host" << host >> as D2{
+
+queue "RabbitMQ" as RMQ {
+}
+node "Celery" << server >> as CL2
+}
 
 }
-node VM1 [
-Servidor Linux
 
-]
 
-node VM2 [
-Servidor Linux
+node "Debian Buster" << execution environment >> as VM3{
+    node "Docker Host 3" << host >> {
+        database PostgreSQL
+        node "Celery" << server >> as CL3
+        node "Python 3.7" as PY2
 
-]
-database PostgreSQL {
+    }
+
 }
-usuario --> VM1
-VM1 --> RMQ
-VM1 --> KG
+cloud "Servicios externos" as cld
+VM1 <--> VM2 : 6379 .. 5672
+VM1 --> VM3 :5432
+VM2 --> VM3 :  6379
+VM2 <--> cld
 
-VM1 ..>  VM2 : tcp
-VM2 ..> VM1
 
-VM2 -- PostgreSQL
-cloud SMTP
-control backup
 
-RMQ ..> SOAP
-RMQ ..> SMTP
-RMQ ..> backup
+
+
 @enduml

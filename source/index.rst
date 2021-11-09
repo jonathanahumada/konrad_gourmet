@@ -6,12 +6,24 @@
 Welcome to Konrad Gourmet's documentation!
 ==========================================
 
+
+.. figure:: cronograma.png
+   :width:  600
+
+   Cronograma del proyecto
+
+    ..
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:        
    
    SRS
    SAD
+   BD
+   STD
+   prototipos
+
 
 Indices and tables
 ==================

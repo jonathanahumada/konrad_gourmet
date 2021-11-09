@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Documento de Arquitectura &#8212; documentación de Konrad Gourmet - 0.0</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Modelo De datos" href="BD.html" />
+    <link rel="prev" title="SRS" href="SRS.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="documento-de-arquitectura">
+<h1>Documento de Arquitectura<a class="headerlink" href="#documento-de-arquitectura" title="Enlazar permanentemente con este título">¶</a></h1>
+<section id="intoduccion">
+<h2>Intoducción<a class="headerlink" href="#intoduccion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El propósito de este documento es proveer una visión
+exhaustiva del Sistema de Información de Konrad Gourmet,para
+lo cual se utilizarán diferentes vistas arquitectónicas
+. Pretende capturar y plasmar las decisiones que se han
+hecho en el sistema.</p>
+</section>
+<section id="representacion-arquitectonica">
+<h2>Representación arquitectónica<a class="headerlink" href="#representacion-arquitectonica" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para describir el sistema, se han desarrollado
+4 vistas:</p>
+<ol class="arabic simple">
+<li><p>Vista lógica</p></li>
+<li><p>Vista de procesos</p></li>
+<li><p>Vista de despliegue</p></li>
+<li><p>Vista de implementación</p></li>
+</ol>
+<section id="vista-logica">
+<h3>Vista lógica<a class="headerlink" href="#vista-logica" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El propósito de esta vista es mostrar, a nivel general,
+los componentes de software utilizados para el
+funcionamiento del sistema. Para resaltar, se
+utilizara el framework Django como backend, puesto
+que tiene ya bien integrados las funcionalidades estipuladas
+en los RNF como autenticación, cifrado, capacidad para
+activar auditoría, etc. Además, en el front-end se utilizará
+un framework de Javascript: Vue.js, por su ligereza y
+facilida de integración con Django. Los componentes de
+front-end son necesarios para cumplir los RNF de usabilidad.</p>
+<a class="reference internal image-reference" href="_images/vista_logica.png"><img alt="Vista lógica" src="_images/vista_logica.png" style="width: 1000px;" /></a>
+<p>Esta es otra forma diferente de ver los componentes.
+El orden de las capas debe ser entendido como el
+orden de las llamadas de un componente a otro. Así
+, la lógica del negocio “llama a” los eventos
+y no viceversa, etc.</p>
+<a class="reference internal image-reference" href="_images/vista_capas.png"><img alt="Vista capas" src="_images/vista_capas.png" style="width: 1000px;" /></a>
+</section>
+<section id="vista-de-despliegue">
+<h3>Vista de despliegue<a class="headerlink" href="#vista-de-despliegue" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Muestra los nodos significativos de la infraestructura
+necesaria para el funcionamiento del sistema. Se decidió utilizar
+un modelo IaS, puesto que sabemos la cantidad de sucursales
+y usuarios en la central. No se pronostica mucho crecimiento, por
+lo que la elasticidad de un PaS no se consideró necesaria.</p>
+<a class="reference internal image-reference" href="_images/vista_despliegue.png"><img alt="Vista despliegue" src="_images/vista_despliegue.png" style="width: 1000px;" /></a>
+</section>
+<section id="vista-procesos">
+<h3>Vista procesos<a class="headerlink" href="#vista-procesos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los siguientes diagramas de actividad muestran
+a alto nivel el funcionamiento de algunos
+casos de uso importantes dentro del sistema.
+No pretenden ser exhaustivos, sino una guía
+de como se activan funcionalidades automáticas
+del sistema que están encapsulados dentro del
+componente “eventos”.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/vista_procesos.png"><img alt="_images/vista_procesos.png" src="_images/vista_procesos.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">UC “Registrar pedido”</span><a class="headerlink" href="#id1" title="Enlace permanente a esta imagen">¶</a></p>
+<div class="legend">
+<blockquote>
+<div></div></blockquote>
+</div>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="_images/vista_procesos_2.png"><img alt="_images/vista_procesos_2.png" src="_images/vista_procesos_2.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">UC “Enviar solicitud de cotización”</span><a class="headerlink" href="#id2" title="Enlace permanente a esta imagen">¶</a></p>
+<div class="legend">
+<blockquote>
+<div></div></blockquote>
+</div>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="_images/vista_procesos_3.png"><img alt="_images/vista_procesos_3.png" src="_images/vista_procesos_3.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">UC “Validar cotización”</span><a class="headerlink" href="#id3" title="Enlace permanente a esta imagen">¶</a></p>
+<div class="legend">
+<blockquote>
+<div></div></blockquote>
+</div>
+</figcaption>
+</figure>
+</section>
+<section id="vista-implementacion">
+<h3>Vista implementación<a class="headerlink" href="#vista-implementacion" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Esta vista provee una visión cercana al programador.
+Los componentes del sistema se expresen en cuanto
+a sus clases e interfaces principales.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/vista_implementacion.png"><img alt="_images/vista_implementacion.png" src="_images/vista_implementacion.png" style="width: 600px;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/vista_implementacion_001.png"><img alt="_images/vista_implementacion_001.png" src="_images/vista_implementacion_001.png" style="width: 600px;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/vista_implementacion_002.png"><img alt="_images/vista_implementacion_002.png" src="_images/vista_implementacion_002.png" style="width: 600px;" /></a>
+</figure>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/vista_implementacion_003.png"><img alt="_images/vista_implementacion_003.png" src="_images/vista_implementacion_003.png" style="width: 600px;" /></a>
+</figure>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Konrad Gourmet</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegación</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="SRS.html">SRS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SRS.html#requerimientos-especificos">Requerimientos específicos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documento de Arquitectura</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#intoduccion">Intoducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#representacion-arquitectonica">Representación arquitectónica</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="BD.html">Modelo De datos</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="SRS.html" title="capítulo anterior">SRS</a></li>
+      <li>Next: <a href="BD.html" title="próximo capítulo">Modelo De datos</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Jonatan Ahumada.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/SAD.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

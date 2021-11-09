@@ -63,9 +63,9 @@
 
 
 \title{Konrad Gourmet}
-\date{25 de octubre de 2021}
+\date{09 de noviembre de 2021}
 \release{0.0}
-\author{Jonatan Ahumada}
+\author{Jonatan Ahumada, Jorge Garzón}
 \newcommand{\sphinxlogo}{\vbox{}}
 \renewcommand{\releasename}{Versión}
 \makeindex
@@ -83,6 +83,17 @@
 \pagestyle{normal}
 \phantomsection\label{\detokenize{index::doc}}
 
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics[width=600\sphinxpxdimen]{{cronograma}.png}
+\caption{Cronograma del proyecto}\label{\detokenize{index:id1}}
+\begin{sphinxlegend}\begin{quote}
+\end{quote}
+\end{sphinxlegend}
+\end{figure}
 
 
 \chapter{SRS}
@@ -210,7 +221,7 @@ Los lenguajes, frameworks y librerías deben ser las últimas versiones estables
 
 \item {} 
 \sphinxAtStartPar
-Cualquier servicio que se tenga que exponer hacia un sistema externo, se debe hacer a través de SOAP
+Cualquier servicio que se tenga que exponer hacia un sistema externo, se debe hacer a través de SOAP
 
 \end{itemize}
 
@@ -320,11 +331,14 @@ No se solicitaron requerimientos de portabilidad.
 \chapter{Requerimientos específicos}
 \label{\detokenize{SRS:requerimientos-especificos}}
 
-\begin{savenotes}\sphinxatlongtablestart\begin{longtable}[c]{|\X{10}{80}|\X{10}{80}|\X{20}{80}|\X{20}{80}|\X{20}{80}|}
+\begin{savenotes}\sphinxatlongtablestart\begin{longtable}[c]{|*{6}{\X{1}{6}|}}
 \sphinxthelongtablecaptionisattop
 \caption{Requerimientos específicos\strut}\label{\detokenize{SRS:id1}}\\*[\sphinxlongtablecapskipadjust]
 \hline
 \sphinxstyletheadfamily 
+\sphinxAtStartPar
+Cód
+&\sphinxstyletheadfamily 
 \sphinxAtStartPar
 UC
 &\sphinxstyletheadfamily 
@@ -343,10 +357,13 @@ Excepciones
 \hline
 \endfirsthead
 
-\multicolumn{5}{c}%
+\multicolumn{6}{c}%
 {\makebox[0pt]{\sphinxtablecontinued{\tablename\ \thetable{} \textendash{} proviene de la página anterior}}}\\
 \hline
 \sphinxstyletheadfamily 
+\sphinxAtStartPar
+Cód
+&\sphinxstyletheadfamily 
 \sphinxAtStartPar
 UC
 &\sphinxstyletheadfamily 
@@ -366,11 +383,14 @@ Excepciones
 \endhead
 
 \hline
-\multicolumn{5}{r}{\makebox[0pt][r]{\sphinxtablecontinued{continué en la próxima página}}}\\
+\multicolumn{6}{r}{\makebox[0pt][r]{\sphinxtablecontinued{continué en la próxima página}}}\\
 \endfoot
 
 \endlastfoot
 
+\sphinxAtStartPar
+UC\sphinxhyphen{}1
+&
 \sphinxAtStartPar
 Registrar Platos
 &
@@ -378,7 +398,7 @@ Registrar Platos
 Jefe de cocina
 &
 \sphinxAtStartPar
-El jefe de cocina de cada uno de los puntos del restaurante en la ciudad puede registrar los platos o menu de este para lo cual debe ingresar los siguientes datos
+El jefe de cocina de cada uno de los puntos del restaurante en la ciudad puede registrar los platos o menu de este para lo cual debe ingresar 1)Categoria, 2)Producto, 3)Cantidad, 4)Unidad 5)Precio
 &
 \sphinxAtStartPar
 El plato se registra  en BD
@@ -387,6 +407,9 @@ El plato se registra  en BD
 La vista se recarga nuevamente, pero se muestran errores de validación por cada campo del formulario
 \\
 \hline
+\sphinxAtStartPar
+UC\sphinxhyphen{}2
+&
 \sphinxAtStartPar
 Registrar Pedido
 &
@@ -404,6 +427,9 @@ La vista se recarga nuevamente, pero se muestran errores de validación por cada
 \\
 \hline
 \sphinxAtStartPar
+UC\sphinxhyphen{}3
+&
+\sphinxAtStartPar
 Solicitar stock de alimentos
 &
 \sphinxAtStartPar
@@ -419,6 +445,9 @@ Se crea una solicitud, se registra en BD y luego se incluye el caso de uso ‘en
 La vista se recarga nuevamente, pero se muestran errores de validación por cada campo del formulario
 \\
 \hline
+\sphinxAtStartPar
+UC\sphinxhyphen{}4
+&
 \sphinxAtStartPar
 Enviar Correo
 &
@@ -436,6 +465,9 @@ Se envía un correo al remitente indicando que el mensaje no fue enviado y mostr
 \\
 \hline
 \sphinxAtStartPar
+UC\sphinxhyphen{}5
+&
+\sphinxAtStartPar
 Consulta solicitudes de sucursal
 &
 \sphinxAtStartPar
@@ -452,6 +484,9 @@ n/a
 \\
 \hline
 \sphinxAtStartPar
+UC\sphinxhyphen{}6
+&
+\sphinxAtStartPar
 Generar solicitud de cotización
 &
 \sphinxAtStartPar
@@ -465,6 +500,9 @@ La solicitud de cotización cambia a estado ‘No Enviada’ y ahora se puede co
 &\\
 \hline
 \sphinxAtStartPar
+UC\sphinxhyphen{}7
+&
+\sphinxAtStartPar
 Enviar solicitud de cotización
 &
 \sphinxAtStartPar
@@ -477,6 +515,9 @@ Se seleccióna una solicitud de cotización que no esté en estado ‘enviada’
 La solicitud de cotización cambia a estado ‘Enviada’ y se ejecutael UC ‘enviar correo’ destinado al proveedor y ‘Actualiza solicitud con precios estandarizados’
 &\\
 \hline
+\sphinxAtStartPar
+UC\sphinxhyphen{}8
+&
 \sphinxAtStartPar
 Actualizar solicitud con valores estandarizadas
 &
@@ -494,6 +535,9 @@ Si hay un problema con el servicio de actualización de datos. El estado de la s
 \\
 \hline
 \sphinxAtStartPar
+UC\sphinxhyphen{}9
+&
+\sphinxAtStartPar
 Consulta respuesta de proveedores
 &
 \sphinxAtStartPar
@@ -509,6 +553,9 @@ n/a
 n/a
 \\
 \hline
+\sphinxAtStartPar
+UC\sphinxhyphen{}10
+&
 \sphinxAtStartPar
 Registra valor del proveedor en cotización
 &
@@ -526,6 +573,9 @@ n/a
 \\
 \hline
 \sphinxAtStartPar
+UC\sphinxhyphen{}11
+&
+\sphinxAtStartPar
 Valida cotización de proveedores con generada
 &
 \sphinxAtStartPar
@@ -535,12 +585,15 @@ Director de Compras
 Por último, presiona el botón validar, el cual ejecutará la lógica de negocio correspondiente.
 &
 \sphinxAtStartPar
-Si el valor de la cotización está por encima en más de un 25\% del valor estándar del ministerio, la cotización queda en estado “RECHAZADA”, si la cotización está por debajo en más de un 50\% del valor estándar del ministerio, la cotización queda en estado “SOSPECHOSA” y finalmente las que se encuentren dentro de este rango quedan en estado “OPCIONADA”.
+Si el valor de la cotización está por encima en más de un 25\% del valor estaándar del ministerio, la cotización queda en estado “RECHAZADA”, si la cotización está por debajo en más de un 50\% del valor estándar del ministerio, la cotización queda en estado “SOSPECHOSA” y finalmente las que se encuentren dentro de este rango quedan en estado “OPCIONADA”.
 &
 \sphinxAtStartPar
 Si faltó un valor por agregar por parte del actor, el formulario se recargará con los valores ingresados y señalará el valor faltante.
 \\
 \hline
+\sphinxAtStartPar
+UC\sphinxhyphen{}12
+&
 \sphinxAtStartPar
 Consulta tablero de control
 &
@@ -562,6 +615,9 @@ n/a
 \\
 \hline
 \sphinxAtStartPar
+UC\sphinxhyphen{}13
+&
+\sphinxAtStartPar
 Parametrizar validaciones
 &
 \sphinxAtStartPar
@@ -578,6 +634,9 @@ Si los márgenes son inconsistentes (el mismo valor para dos estados, o el marge
 \\
 \hline
 \sphinxAtStartPar
+UC\sphinxhyphen{}14
+&
+\sphinxAtStartPar
 Monitorear auditoría
 &
 \sphinxAtStartPar
@@ -593,6 +652,9 @@ Al ingresar en el detalle de cada fila, se muestra una lista de cambios a cada v
 n/a
 \\
 \hline
+\sphinxAtStartPar
+UC\sphinxhyphen{}15
+&
 \sphinxAtStartPar
 Consultar logs
 &
@@ -635,11 +697,6 @@ Para describir el sistema, se han desarrollado
 \item {} 
 \sphinxAtStartPar
 Vista lógica
-\begin{quote}
-
-\sphinxAtStartPar
-Describe la conformación del software en cuanto sus componentes
-\end{quote}
 
 \item {} 
 \sphinxAtStartPar
@@ -672,10 +729,858 @@ front\sphinxhyphen{}end son necesarios para cumplir los RNF de usabilidad.
 
 \noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{vista_logica}.png}
 
+\sphinxAtStartPar
+Esta es otra forma diferente de ver los componentes.
+El orden de las capas debe ser entendido como el
+orden de las llamadas de un componente a otro. Así
+, la lógica del negocio “llama a” los eventos
+y no viceversa, etc.
+
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{vista_capas}.png}
+
 
 \subsection{Vista de despliegue}
 \label{\detokenize{SAD:vista-de-despliegue}}
+\sphinxAtStartPar
+Muestra los nodos significativos de la infraestructura
+necesaria para el funcionamiento del sistema. Se decidió utilizar
+un modelo IaS, puesto que sabemos la cantidad de sucursales
+y usuarios en la central. No se pronostica mucho crecimiento, por
+lo que la elasticidad de un PaS no se consideró necesaria.
+
 \noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{vista_despliegue}.png}
+
+
+\subsection{Vista procesos}
+\label{\detokenize{SAD:vista-procesos}}
+\sphinxAtStartPar
+Los siguientes diagramas de actividad muestran
+a alto nivel el funcionamiento de algunos
+casos de uso importantes dentro del sistema.
+No pretenden ser exhaustivos, sino una guía
+de como se activan funcionalidades automáticas
+del sistema que están encapsulados dentro del
+componente “eventos”.
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics[width=600\sphinxpxdimen]{{vista_procesos}.png}
+\caption{UC “Registrar pedido”}\label{\detokenize{SAD:id1}}
+\begin{sphinxlegend}\begin{quote}
+\end{quote}
+\end{sphinxlegend}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics[width=600\sphinxpxdimen]{{vista_procesos_2}.png}
+\caption{UC “Enviar solicitud de cotización”}\label{\detokenize{SAD:id2}}
+\begin{sphinxlegend}\begin{quote}
+\end{quote}
+\end{sphinxlegend}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics[width=600\sphinxpxdimen]{{vista_procesos_3}.png}
+\caption{UC “Validar cotización”}\label{\detokenize{SAD:id3}}
+\begin{sphinxlegend}\begin{quote}
+\end{quote}
+\end{sphinxlegend}
+\end{figure}
+
+
+\subsection{Vista implementación}
+\label{\detokenize{SAD:vista-implementacion}}
+\sphinxAtStartPar
+Esta vista provee una visión cercana al programador.
+Los componentes del sistema se expresen en cuanto
+a sus clases e interfaces principales.
+
+\begin{figure}[htbp]
+\centering
+
+\noindent\sphinxincludegraphics[width=600\sphinxpxdimen]{{vista_implementacion}.png}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+
+\noindent\sphinxincludegraphics[width=600\sphinxpxdimen]{{vista_implementacion_001}.png}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+
+\noindent\sphinxincludegraphics[width=600\sphinxpxdimen]{{vista_implementacion_002}.png}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+
+\noindent\sphinxincludegraphics[width=600\sphinxpxdimen]{{vista_implementacion_003}.png}
+\end{figure}
+
+
+\chapter{Modelo De datos}
+\label{\detokenize{BD:modelo-de-datos}}\label{\detokenize{BD::doc}}
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{base_datos}.png}
+
+
+\chapter{Plan de pruebas}
+\label{\detokenize{STD:plan-de-pruebas}}\label{\detokenize{STD::doc}}
+
+\chapter{Casos de prueba}
+\label{\detokenize{STD:casos-de-prueba}}
+
+\begin{savenotes}\sphinxatlongtablestart\begin{longtable}[c]{|*{8}{\X{1}{8}|}}
+\sphinxthelongtablecaptionisattop
+\caption{Casos de prueba\strut}\label{\detokenize{STD:id1}}\\*[\sphinxlongtablecapskipadjust]
+\hline
+\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Id
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Caso de Prueba
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Descripción
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Funcionalidad / Característica
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Datos / Acciones de Entrada
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Resultado Esperado
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Requerimientos de Ambiente de Pruebas
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Procedimientos especiales requeridos
+\\
+\hline
+\endfirsthead
+
+\multicolumn{8}{c}%
+{\makebox[0pt]{\sphinxtablecontinued{\tablename\ \thetable{} \textendash{} proviene de la página anterior}}}\\
+\hline
+\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Id
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Caso de Prueba
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Descripción
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Funcionalidad / Característica
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Datos / Acciones de Entrada
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Resultado Esperado
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Requerimientos de Ambiente de Pruebas
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Procedimientos especiales requeridos
+\\
+\hline
+\endhead
+
+\hline
+\multicolumn{8}{r}{\makebox[0pt][r]{\sphinxtablecontinued{continué en la próxima página}}}\\
+\endfoot
+
+\endlastfoot
+
+\sphinxAtStartPar
+1
+&
+\sphinxAtStartPar
+Registro exitoso de platos
+&
+\sphinxAtStartPar
+Cuando el jefe de cocina ingresa al formulario y diligencia:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Categoría
+
+\item {} 
+\sphinxAtStartPar
+Producto
+
+\item {} 
+\sphinxAtStartPar
+Cantidad
+
+\item {} 
+\sphinxAtStartPar
+Unidad
+
+\item {} 
+\sphinxAtStartPar
+Precio
+
+\end{enumerate}
+
+\sphinxAtStartPar
+El plato debe registrarse correctamente en la base de datos
+&
+\sphinxAtStartPar
+CU: Registrar platos
+&\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Categoría
+
+\item {} 
+\sphinxAtStartPar
+Producto
+
+\item {} 
+\sphinxAtStartPar
+Cantidad
+
+\item {} 
+\sphinxAtStartPar
+Unidad
+
+\item {} 
+\sphinxAtStartPar
+Precio
+
+\end{enumerate}
+&
+\sphinxAtStartPar
+El plato se registra en la base de datos y puede ser consultado.
+&
+\sphinxAtStartPar
+N/A
+&
+\sphinxAtStartPar
+N/A
+\\
+\hline
+\sphinxAtStartPar
+2
+&
+\sphinxAtStartPar
+Registro exitoso de pedidos
+&
+\sphinxAtStartPar
+Cuando el mesero ingresa al formulario y diligencia:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Plato
+
+\item {} 
+\sphinxAtStartPar
+Cantidad
+
+\item {} 
+\sphinxAtStartPar
+Mesa
+
+\end{enumerate}
+
+\sphinxAtStartPar
+El pedido debe registrarse correctamente en la base de datos, seguido, la base de datos descuenta las unidades de producto correspondientes al plato
+&
+\sphinxAtStartPar
+CU: Registrar pedido
+&\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Plato
+
+\item {} 
+\sphinxAtStartPar
+Cantidad
+
+\item {} 
+\sphinxAtStartPar
+Mesa
+
+\end{enumerate}
+&
+\sphinxAtStartPar
+El pedido se registra en la base de datos y esta a su vez descuenta las unidades de los productos asociados al plato.
+&
+\sphinxAtStartPar
+N/A
+&
+\sphinxAtStartPar
+N/A
+\\
+\hline
+\sphinxAtStartPar
+3
+&
+\sphinxAtStartPar
+Solicitud exitosa de stock de alimentos
+&
+\sphinxAtStartPar
+Cuando el jefe de cocina ingresa al formulario y diligencia:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Categoría de producto
+
+\item {} 
+\sphinxAtStartPar
+Producto (según 1)
+
+\item {} 
+\sphinxAtStartPar
+Cantidad
+
+\item {} 
+\sphinxAtStartPar
+Marca
+
+\item {} 
+\sphinxAtStartPar
+Unidad
+
+\end{enumerate}
+
+\sphinxAtStartPar
+La solicitud debe registrarse en la base de datos y se envía un correo electrónico, indicando remitente, destinatario y con cuerpo: «Solicitar stock de alimentos». También se adiciona al cuerpo del correo un certificado y una estampa cronológica
+&
+\sphinxAtStartPar
+CU: Solicitar stock de alimentos
+CU: Enviar correo
+&\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Categoría de producto
+
+\item {} 
+\sphinxAtStartPar
+Producto (según 1)
+
+\item {} 
+\sphinxAtStartPar
+Cantidad
+
+\item {} 
+\sphinxAtStartPar
+Marca
+
+\item {} 
+\sphinxAtStartPar
+Unidad
+
+\end{enumerate}
+&\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+La solicitud se registra en la base de datos
+
+\item {} 
+\sphinxAtStartPar
+El correo electrónico se envía a remitente con certificado y estampa cronológica
+
+\end{enumerate}
+&
+\sphinxAtStartPar
+N/A
+&
+\sphinxAtStartPar
+N/A
+\\
+\hline
+\sphinxAtStartPar
+4
+&
+\sphinxAtStartPar
+Consulta exitosa de solicitudes de sucursal
+&
+\sphinxAtStartPar
+Cuando el auxiliar de compras navega por la vista de solicitudes de stock puede navegar por:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Fecha de solicitud
+
+\item {} 
+\sphinxAtStartPar
+Producto
+
+\item {} 
+\sphinxAtStartPar
+Cantidad
+
+\item {} 
+\sphinxAtStartPar
+Marca
+
+\item {} 
+\sphinxAtStartPar
+Estado
+
+\end{enumerate}
+
+\sphinxAtStartPar
+El sistema le permite seleccionar una solicitud de stock particular
+&
+\sphinxAtStartPar
+CU: Consultar solicitudes de sucursal
+&\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Fecha de solicitud
+
+\item {} 
+\sphinxAtStartPar
+Producto
+
+\item {} 
+\sphinxAtStartPar
+Cantidad
+
+\item {} 
+\sphinxAtStartPar
+Marca
+
+\item {} 
+\sphinxAtStartPar
+Estado
+
+\end{enumerate}
+&
+\sphinxAtStartPar
+El sistema muestra las diferentes solicitudes
+&
+\sphinxAtStartPar
+N/A
+&
+\sphinxAtStartPar
+N/A
+\\
+\hline
+\sphinxAtStartPar
+5
+&
+\sphinxAtStartPar
+Generación exitosa de solicitud de cotización
+&
+\sphinxAtStartPar
+De acuerdo a la navegación y selección del caso de prueba 4, el auxiliar de compras diligencia:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Proveedor
+
+\item {} 
+\sphinxAtStartPar
+Fecha desde
+
+\item {} 
+\sphinxAtStartPar
+Fecha hasta
+
+\end{enumerate}
+&
+\sphinxAtStartPar
+CU: Generar solicitud de cotización
+&\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Proveedor
+
+\item {} 
+\sphinxAtStartPar
+Fecha desde
+
+\item {} 
+\sphinxAtStartPar
+Fecha hasta
+
+\end{enumerate}
+&
+\sphinxAtStartPar
+El sistema cambia el estado de la cotización a «No Enviada»
+&
+\sphinxAtStartPar
+N/A
+&
+\sphinxAtStartPar
+N/A
+\\
+\hline
+\sphinxAtStartPar
+6
+&
+\sphinxAtStartPar
+Envío exitoso de solicitud de cotización
+&
+\sphinxAtStartPar
+Cuando el auxiliar de compras:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Selecciona una solicitud de cotización en estado diferente a «Enviada»
+
+\item {} 
+\sphinxAtStartPar
+Presiona el botón «Enviar al proveedor»
+
+\end{enumerate}
+
+\sphinxAtStartPar
+El estado de la solicitud de cotización debe cambiar a «Enviada» y se envía un correo electrónico, indicando remitente, destinatario y con cuerpo: «Solicitar stock de alimentos». También se adiciona al cuerpo del correo un certificado y una estampa cronológica. Adicionalmente, el sistema consulta un servicio expuesto por la entidad gubernamental y añade un campo «Precio Sugerido» a cada producto incluido dentro de la cotización
+&
+\sphinxAtStartPar
+CU: Enviar solicitud de cotización
+CU: Enviar correo
+CU: Actualizar solicitud con valores estandarizados
+&\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Solicitudes de cotizaciones de la base de datos
+
+\item {} 
+\sphinxAtStartPar
+Botón «Enviar al proveedor»
+
+\end{enumerate}
+&\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+El estado de la cotización se actualiza en la base de datos
+
+\item {} 
+\sphinxAtStartPar
+El correo electrónico se envía a remitente con certificado y estampa cronológica
+
+\item {} 
+\sphinxAtStartPar
+El campo «precio sugerido» es añadido a cada producto incluido dentro de la cotización
+
+\end{enumerate}
+&
+\sphinxAtStartPar
+N/A
+&
+\sphinxAtStartPar
+N/A
+\\
+\hline
+\sphinxAtStartPar
+7
+&
+\sphinxAtStartPar
+Consulta exitosa de respuesta de proveedores
+&
+\sphinxAtStartPar
+El director de compras recibe en su correo la respuesta de los proveedores
+&
+\sphinxAtStartPar
+CU: Consulta respuesta de proveedores
+&
+\sphinxAtStartPar
+Correo electrónico
+&
+\sphinxAtStartPar
+N/A
+&
+\sphinxAtStartPar
+N/A
+&
+\sphinxAtStartPar
+N/A
+\\
+\hline
+\sphinxAtStartPar
+8
+&
+\sphinxAtStartPar
+Registro exitoso de valores de proveedores en cotización
+&
+\sphinxAtStartPar
+Para este caso, director de compras:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Consulta la cotización respectiva
+
+\item {} 
+\sphinxAtStartPar
+Agrega los valores propuestos por los proveedores en una columna vacía
+
+\end{enumerate}
+&
+\sphinxAtStartPar
+CU: Registrar valor del proveedor en cotización
+&\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Solicitudes de cotizaciones de la base de datos
+
+\item {} 
+\sphinxAtStartPar
+Columna vacía para agregar valor
+
+\end{enumerate}
+&\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+El sistema trae la cotización indicada
+
+\item {} 
+\sphinxAtStartPar
+El sistema permite la inclusión del valor propuesto dentro de la cotización
+
+\end{enumerate}
+&
+\sphinxAtStartPar
+N/A
+&
+\sphinxAtStartPar
+N/A
+\\
+\hline
+\sphinxAtStartPar
+9
+&
+\sphinxAtStartPar
+Validación exitosa de cotizaciones
+&
+\sphinxAtStartPar
+Para este caso, director de compras:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Ejecuta el botón «Validar»
+
+\end{enumerate}
+&
+\sphinxAtStartPar
+CU: Valida cotización de proveedores contra generada
+&\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Botón «Validar»
+
+\end{enumerate}
+&
+\sphinxAtStartPar
+La ejecución del botón permite la validación de la lógica de negocio explicada a continuación:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Si el valor está por encima en más de un 25\% del valor estándar del Ministerio, el estado de la cotización quedará en estado «Rechazada»
+
+\item {} 
+\sphinxAtStartPar
+Si el valor está por debajo en más de un 50\% del valor estándar del Ministerio, el estado de la cotización quedará en estado «Sospechosa»
+
+\item {} 
+\sphinxAtStartPar
+Si el valor se encuentra dentro del rango, el estado de la cotización quedará en estado «Opcionada»
+
+\end{enumerate}
+&
+\sphinxAtStartPar
+N/A
+&
+\sphinxAtStartPar
+N/A
+\\
+\hline
+\sphinxAtStartPar
+10
+&
+\sphinxAtStartPar
+Consulta exitosa de tablero de control
+&
+\sphinxAtStartPar
+El director de compras puede navegar por el tablero de control, y en este observar y filtrar:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Producto con mayor demanda (Mes)
+
+\item {} 
+\sphinxAtStartPar
+Restaurante con mayor demanda (Mes)
+
+\item {} 
+\sphinxAtStartPar
+Proveedor con mejores precios (Año)
+
+\end{enumerate}
+&
+\sphinxAtStartPar
+CU: Consulta tablero de control
+&
+\sphinxAtStartPar
+Módulo: Tablero de control
+&
+\sphinxAtStartPar
+El sistema habilita una vista donde se muestran los principales KPI del negocio
+&
+\sphinxAtStartPar
+N/A
+&
+\sphinxAtStartPar
+N/A
+\\
+\hline
+\sphinxAtStartPar
+11
+&
+\sphinxAtStartPar
+Parametrización exitosa de validaciones
+&
+\sphinxAtStartPar
+El administrador puede navegar por el módulo y alterar los márgenes de estados de solicitudes de cotización
+&
+\sphinxAtStartPar
+CU: Parametrizar validaciones
+&
+\sphinxAtStartPar
+Módulo: Parametrización
+&
+\sphinxAtStartPar
+El sistema habilita una vista donde el administrador puede actualizar los valores de las márgenes y estos quedan correctamente actualizados en la base de datos
+&
+\sphinxAtStartPar
+N/A
+&
+\sphinxAtStartPar
+N/A
+\\
+\hline
+\sphinxAtStartPar
+12
+&
+\sphinxAtStartPar
+Monitoreo exitoso de audioría
+&
+\sphinxAtStartPar
+El administrador puede navegar por el módulo y visualizar todas las tablas de la base de datos
+&
+\sphinxAtStartPar
+CU: Monitorear auditoría
+&
+\sphinxAtStartPar
+Módulo: Auditoría
+&
+\sphinxAtStartPar
+El sistema habilita una vista donde el administrador puede visualizar todas las tablas de la base de datos, con todos sus registros
+&
+\sphinxAtStartPar
+N/A
+&
+\sphinxAtStartPar
+N/A
+\\
+\hline
+\sphinxAtStartPar
+13
+&
+\sphinxAtStartPar
+Consulta exitosa de archivos de log
+&
+\sphinxAtStartPar
+El administrador puede navegar por el módulo y visualizar todos los archivos de log existentes
+&
+\sphinxAtStartPar
+CU: Consultar logs
+&
+\sphinxAtStartPar
+Módulo: Auditoría
+&
+\sphinxAtStartPar
+El sistema habilita una vista donde el administrador puede visualizar todos los archivos existentes de logs
+&
+\sphinxAtStartPar
+N/A
+&
+\sphinxAtStartPar
+N/A
+\\
+\hline
+\end{longtable}\sphinxatlongtableend\end{savenotes}
+
+
+\chapter{Prototipos}
+\label{\detokenize{prototipos:prototipos}}\label{\detokenize{prototipos::doc}}
+
+\section{Web}
+\label{\detokenize{prototipos:web}}
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{1}.jpg}
+
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{2}.jpg}
+
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{3}.jpg}
+
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{4}.jpg}
+
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{5}.jpg}
+
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{6}.jpg}
+
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{7}.jpg}
+
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{8}.jpg}
+
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{9}.jpg}
+
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{10}.jpg}
+
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{11}.jpg}
+
+
+\section{Móvil}
+\label{\detokenize{prototipos:movil}}
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{12}.jpg}
+
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{21}.jpg}
+
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{31}.jpg}
+
+\noindent\sphinxincludegraphics[width=1000\sphinxpxdimen]{{31}.jpg}
 
 
 \chapter{Indices and tables}

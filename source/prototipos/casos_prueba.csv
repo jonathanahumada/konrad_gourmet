@@ -1,0 +1,96 @@
+﻿Plantilla de Casos de Pruebas de Software;;;;;;;
+Elaborado por: www.pmoinformatica.com;;;;;;;
+Proyecto: Konrad Gourmet;;;;;;;
+Ciclo de Pruebas: Release 1,0 de aplicativo;;;;;;;
+;;;;;;;
+Id;Caso de Prueba;Descripción;Funcionalidad / Característica;Datos / Acciones de Entrada;Resultado Esperado;Requerimientos de Ambiente de Pruebas;Procedimientos especiales requeridos
+1;Registro exitoso de platos;"Cuando el jefe de cocina ingresa al formulario y diligencia:
+
+1. Categoría
+2. Producto
+3. Cantidad
+4. Unidad
+5. Precio
+
+El plato debe registrarse correctamente en la base de datos";CU: Registrar platos;"1. Categoría
+2. Producto
+3. Cantidad
+4. Unidad
+5. Precio";El plato se registra en la base de datos y puede ser consultado.;N/A;N/A
+2;Registro exitoso de pedidos;"Cuando el mesero ingresa al formulario y diligencia:
+
+1. Plato
+2. Cantidad
+3. Mesa
+
+El pedido debe registrarse correctamente en la base de datos, seguido, la base de datos descuenta las unidades de producto correspondientes al plato";CU: Registrar pedido;"1. Plato
+2. Cantidad
+3. Mesa";El pedido se registra en la base de datos y esta a su vez descuenta las unidades de los productos asociados al plato.;N/A;N/A
+3;Solicitud exitosa de stock de alimentos;"Cuando el jefe de cocina ingresa al formulario y diligencia:
+
+1. Categoría de producto
+2. Producto (según 1)
+3. Cantidad
+4. Marca
+5. Unidad
+
+La solicitud debe registrarse en la base de datos y se envía un correo electrónico, indicando remitente, destinatario y con cuerpo: ""Solicitar stock de alimentos"". También se adiciona al cuerpo del correo un certificado y una estampa cronológica";"CU: Solicitar stock de alimentos
+CU: Enviar correo";"1. Categoría de producto
+2. Producto (según 1)
+3. Cantidad
+4. Marca
+5. Unidad";"1. La solicitud se registra en la base de datos
+2. El correo electrónico se envía a remitente con certificado y estampa cronológica";N/A;N/A
+4;Consulta exitosa de solicitudes de sucursal;"Cuando el auxiliar de compras navega por la vista de solicitudes de stock puede navegar por:
+
+1. Fecha de solicitud
+2. Producto
+3. Cantidad
+4. Marca
+5. Estado
+
+El sistema le permite seleccionar una solicitud de stock particular";CU: Consultar solicitudes de sucursal;"1. Fecha de solicitud
+2. Producto
+3. Cantidad
+4. Marca
+5. Estado";El sistema muestra las diferentes solicitudes;N/A;N/A
+5;Generación exitosa de solicitud de cotización;"De acuerdo a la navegación y selección del caso de prueba 4, el auxiliar de compras diligencia:
+
+1. Proveedor
+2. Fecha desde
+3. Fecha hasta";CU: Generar solicitud de cotización;"1. Proveedor
+2. Fecha desde
+3. Fecha hasta";"El sistema cambia el estado de la cotización a ""No Enviada""";N/A;N/A
+6;Envío exitoso de solicitud de cotización;"Cuando el auxiliar de compras:
+
+1. Selecciona una solicitud de cotización en estado diferente a ""Enviada""
+2. Presiona el botón ""Enviar al proveedor""
+
+El estado de la solicitud de cotización debe cambiar a ""Enviada"" y se envía un correo electrónico, indicando remitente, destinatario y con cuerpo: ""Solicitar stock de alimentos"". También se adiciona al cuerpo del correo un certificado y una estampa cronológica. Adicionalmente, el sistema consulta un servicio expuesto por la entidad gubernamental y añade un campo ""Precio Sugerido"" a cada producto incluido dentro de la cotización";"CU: Enviar solicitud de cotización
+CU: Enviar correo
+CU: Actualizar solicitud con valores estandarizados";"1. Solicitudes de cotizaciones de la base de datos
+2. Botón ""Enviar al proveedor""";"1. El estado de la cotización se actualiza en la base de datos
+2. El correo electrónico se envía a remitente con certificado y estampa cronológica
+3. El campo ""precio sugerido"" es añadido a cada producto incluido dentro de la cotización";N/A;N/A
+7;Consulta exitosa de respuesta de proveedores;El director de compras recibe en su correo la respuesta de los proveedores;CU: Consulta respuesta de proveedores;Correo electrónico;N/A;N/A;N/A
+8;Registro exitoso de valores de proveedores en cotización;"Para este caso, director de compras:
+
+1. Consulta la cotización respectiva
+2. Agrega los valores propuestos por los proveedores en una columna vacía";CU: Registrar valor del proveedor en cotización;"1. Solicitudes de cotizaciones de la base de datos
+2. Columna vacía para agregar valor";"1. El sistema trae la cotización indicada
+2. El sistema permite la inclusión del valor propuesto dentro de la cotización";N/A;N/A
+9;Validación exitosa de cotizaciones;"Para este caso, director de compras:
+
+1. Ejecuta el botón ""Validar""";CU: Valida cotización de proveedores contra generada;"1. Botón ""Validar""";"La ejecución del botón permite la validación de la lógica de negocio explicada a continuación:
+
+1. Si el valor está por encima en más de un 25% del valor estándar del Ministerio, el estado de la cotización quedará en estado ""Rechazada""
+2. Si el valor está por debajo en más de un 50% del valor estándar del Ministerio, el estado de la cotización quedará en estado ""Sospechosa""
+3. Si el valor se encuentra dentro del rango, el estado de la cotización quedará en estado ""Opcionada""";N/A;N/A
+10;Consulta exitosa de tablero de control;"El director de compras puede navegar por el tablero de control, y en este observar y filtrar:
+
+1. Producto con mayor demanda (Mes)
+2. Restaurante con mayor demanda (Mes)
+3. Proveedor con mejores precios (Año)";CU: Consulta tablero de control;Módulo: Tablero de control;El sistema habilita una vista donde se muestran los principales KPI del negocio;N/A;N/A
+11;Parametrización exitosa de validaciones;El administrador puede navegar por el módulo y alterar los márgenes de estados de solicitudes de cotización;CU: Parametrizar validaciones;Módulo: Parametrización;El sistema habilita una vista donde el administrador puede actualizar los valores de las márgenes y estos quedan correctamente actualizados en la base de datos;N/A;N/A
+12;Monitoreo exitoso de audioría;El administrador puede navegar por el módulo y visualizar todas las tablas de la base de datos;CU: Monitorear auditoría;Módulo: Auditoría;El sistema habilita una vista donde el administrador puede visualizar todas las tablas de la base de datos, con todos sus registros;N/A;N/A
+13;Consulta exitosa de archivos de log;El administrador puede navegar por el módulo y visualizar todos los archivos de log existentes;CU: Consultar logs;Módulo: Auditoría;El sistema habilita una vista donde el administrador puede visualizar todos los archivos existentes de logs;N/A;N/A
